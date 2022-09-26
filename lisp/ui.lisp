@@ -17,6 +17,10 @@
       (:script :src "https://cdn.jsdelivr.net/npm/vega-embed@6")
 
       ;; actual contents
+      #+nil
       (:div :class "content"
-            (:canvas :id "plotview-canvas" :width 400 :height 400))))
+            (:canvas :id "plotview-canvas" :width 400 :height 400))
+
+      (:div :id "vis")
+      ))
     (values)))

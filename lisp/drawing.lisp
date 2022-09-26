@@ -14,3 +14,8 @@
   (let ((msg (with-output-to-string (out)
                (yason::encode-plist '("message" "draw-stroke") out))))
     (send-message msg)))
+
+(defun embed-vega (spec)
+  (let* ((msg (with-output-to-string (out)
+		(vega:write-spec spec :spec-loc out))))
+    (send-message msg)))

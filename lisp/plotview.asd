@@ -13,7 +13,7 @@
   :license  "Apache 2.0"
   :version "0.0.1"
   :serial t
-  :depends-on (:hunchentoot :trivial-ws :parenscript :yason :cl-who)
+  :depends-on (:hunchentoot :trivial-ws :parenscript :yason :cl-who :plot/vega)
   :components ((:file "package")
                (:file "parameters")
                (:file "http-server")
@@ -33,3 +33,13 @@
 
 #+nil (plotview::draw-stroke)
 #+nil (plotview::clear-canvas)
+#+nil (plotview::embed-vega (vega:defplot grouped-bar-chart
+			      '(:mark :bar
+				:data (:category #(A A A B B B C C C)
+				       :group    #(x y z x y z x y z)
+				       :value    #(0.1 0.6 0.9 0.7 0.2 1.1 0.6 0.1 0.2))
+				:encoding (:x (:field :category)
+					   :y (:field :value :type :quantitative)
+					   :x-offset (:field :group)
+					   :color    (:field :group)))))
+
