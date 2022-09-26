@@ -16,11 +16,17 @@
       (:script :src "https://cdn.jsdelivr.net/npm/vega-lite@5")
       (:script :src "https://cdn.jsdelivr.net/npm/vega-embed@6")
 
-      ;; actual contents
-      #+nil
-      (:div :class "content"
-            (:canvas :id "plotview-canvas" :width 400 :height 400))
-
+      ;; page content
       (:div :id "vis")
-      ))
+
+#|
+      (:canvas :id "plotview-canvas" :width "400" :height "400")
+      (:div
+       (:button :id "draw-stroke-button"
+                :onclick "PlotviewSocket.send(JSON.stringify({\"message\": \"dodrawstroke\"}))"
+                "Draw Stroke")
+       (:button :id "clear-button"
+                :onclick "PlotviewSocket.send(JSON.stringify({\"message\": \"doclearcanvas\"}))"
+                "Clear")))))
+|#
     (values)))
