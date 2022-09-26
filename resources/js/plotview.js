@@ -25,22 +25,22 @@ function consoleLogMessage(messageData) {
     console.log(messageData);
 }
 
-function embedVega(messageData) {
-    vegaEmbed('#vis', messageData);
+function embedVega(spec) {
+    vegaEmbed('#vis', spec);
 }
 
 function handleMessage(messageData) {
     let msg = messageData['message'];
+    let spec = messageData['spec'];
     if (msg == 'clear-canvas') {
         clearCanvas();
     } else if (msg == "draw-stroke") {
         drawStroke();
     } else if (msg == "embed-vega") {
-	embedVega(messageData);
+	embedVega(spec);
     } else {
     }
 }
-
 
 PlotviewSocket.onmessage = function (event) {
     var messageData = JSON.parse(event.data);
