@@ -13,7 +13,7 @@
   :license  "Apache 2.0"
   :version "0.0.1"
   :serial t
-  :depends-on (:hunchentoot :trivial-ws :parenscript :yason :cl-who)
+  :depends-on (:hunchentoot :trivial-ws :parenscript :yason :cl-who :alexandria :alexandria+ :plot/vega)
   :components ((:file "package")
                (:file "parameters")
                (:file "http-server")
